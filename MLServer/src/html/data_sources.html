@@ -5,14 +5,19 @@
     <title>Main page</title>
 </head>
 
+
 <h3>Список существующих источников данных</h3>
 {% for data in data_sources %}
-    <div>{{ data.type }} <b>{{ data.file }}</b> <b>{{ data.request }}</b></div>
+    <div><b>{{ data.data_name }}</b> {{ data.data_type }} <b>{{ data.data_path }}</b> <b>{{ data.data_request }}</b></div>
 {% endfor %}
 
 {% extends "base.html" %}
 
 {% block content %}
+
+<div class="container">
+      {{ wtf.quick_form(go_to_pipeline) }}
+</div>
 
 <div class="container">
       {{ wtf.quick_form(data_types_form) }}
